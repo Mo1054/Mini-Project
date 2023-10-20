@@ -1,0 +1,346 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #505050;
+}
+
+/* Outer Grid container */
+.grid-container {
+  display: grid;
+  grid-template-rows: repeat(2, auto);
+  grid-template-areas: "nav" "login";
+  height: 100%;
+  font-size: 2vh;
+  grid-gap: 2rem;
+}
+
+/* Applying grid layout to the diffrent sections in the grid layout  */
+
+.navbar {
+  grid-area: nav;
+  display: grid;
+  grid-template-columns: repeat(6, auto);
+  grid-gap: 2.5rem;
+  justify-items: center;
+  justify-content: center;
+  margin-top: 2rem;
+  width: 100%;
+}
+
+
+.login {
+  grid-area: login;
+  justify-self: center;
+  display: grid;
+  min-width: 50%;
+  max-width: 60%;
+}
+
+
+
+/* css for nav bar */
+
+.navbar a {
+  text-decoration: underline;
+  font-weight: bold;
+  align-self: center;
+  color: #505050;
+}
+
+/* CSS for the p elements inside nav bar */
+.navbar p {
+  align-self: center;
+}
+
+/*  CSS for the input on the search bar*/
+input[type="text"] {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  background-color: grey;
+  color: black;
+  width: 500px;
+  height: 50px;
+}
+
+/* CSS for the placeholders inside inputs */
+::placeholder {
+  color: black;
+  opacity: 1; /* Firefox */
+}
+
+/* css for the university image and elements inside the div of the section */
+.university img {
+  float: left;
+  width: 45%;
+  margin-left: 1.5rem;
+  margin: 1rem;
+}
+
+.university .sections h1,
+.university .sections p {
+  margin-left: 25rem;
+}
+
+/* 
+css for writing box at the bottom of the page. */
+
+.write .sections {
+  display: grid;
+  align-items: center;
+}
+
+.write form {
+  display: grid;
+  align-items: center;
+}
+
+.write .sections #text {
+  min-width: 75vh;
+  min-height: 25vh;
+  background: white;
+  border-style: solid;
+  justify-self: center;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.write .sections #name {
+  min-width: 75vh;
+  min-height: 5vh;
+  background: white;
+  border-style: solid;
+  justify-self: center;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+label {
+  justify-self: center;
+}
+
+.write input[type="submit"] {
+  min-width: 20vh;
+  min-height: 7vh;
+  justify-self: center;
+  border-radius: 30px;
+  background-color: grey;
+}
+
+/* Stlying for elements changed into headers like p or bold elements  */
+
+.h2 {
+  margin-left: 2.5rem;
+  font-weight: 200;
+  font-size: 1.5rem;
+}
+
+.h3 {
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-top: -10px;
+}
+
+.h4 {
+  margin-left: 1.5rem;
+  font-weight: bold;
+  font-size: 1.8rem;
+  margin-top: 5px;
+}
+
+/* CSS for the titles */
+
+.titles {
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 2rem;
+}
+
+.review .titles {
+  align-self: center;
+}
+
+/* Css on the divs inside the sections */
+
+.sections {
+  background-color: #d3d3d3;
+  border-radius: 30px;
+  overflow: auto;
+  overflow-wrap: break-word;
+}
+
+.university .sections {
+  background-color: white;
+}
+
+/* Moving the video the right of the div */
+
+.sections iframe {
+  float: right;
+  margin-right: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+/* Applying styling to H2 of the sections */
+
+.sections h2 {
+  margin-top: 150px;
+  margin-left: 1.5rem;
+}
+
+/* Applying stlying the h1 of the sections */
+
+.sections h1 {
+  margin-left: 1.5rem;
+}
+
+/*  Applying styling the p of the sections*/
+
+.sections p {
+  margin-left: 1.5rem;
+}
+
+/* css for drop down menu */
+
+.dropbtn {
+  background-color: grey;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  background-color: grey;
+}
+
+/*CSS for the button */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+  margin-top: 10px;
+  margin-right: auto;
+}
+
+/* CSS for the button */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* CSS for the buton */
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* CSS for the button*/
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+/* CSS for the button */
+
+input:checked + .slider {
+  background-color: black;
+}
+
+/*  CSS for the button*/
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196f3;
+}
+
+/* CSS for the button */
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Layout for the website if dark mode button is clicked */
+
+.dark,
+.dark .university .sections,
+.dark .navbar a {
+  background: #202020;
+}
+
+.dark .sections,
+.dark a,
+.dark .dropbtn {
+  background-color: #303030;
+  color: #f5f5f5;
+}
+
+.dark .navbar {
+  color: #f5f5f5;
+}
+
+.dark .grid-container {
+  color: #f5f5f5;
+}
