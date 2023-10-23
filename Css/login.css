@@ -6,16 +6,18 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   color: #505050;
+  height: 200px;
 }
+
 
 /* Outer Grid container */
 .grid-container {
   display: grid;
-  grid-template-rows: repeat(2, auto);
+  grid-template-rows: auto;
   grid-template-areas: "nav" "login";
-  height: 100%;
+  height: 50%;
   font-size: 2vh;
-  grid-gap: 2rem;
+  grid-row-gap: 5rem;
 }
 
 /* Applying grid layout to the diffrent sections in the grid layout  */
@@ -31,6 +33,7 @@ body {
   width: 100%;
 }
 
+/* Applying grid layout to the login section */
 
 .login {
   grid-area: login;
@@ -38,9 +41,19 @@ body {
   display: grid;
   min-width: 50%;
   max-width: 60%;
+  height: 50vh;
 }
 
-
+.login .sections {
+  display: grid;
+  justify-items: center;
+  min-width: 100%;
+  max-width: 60%;
+}
+.login h1{
+  margin-top: 2rem;
+  margin-bottom: auto;
+}
 
 /* css for nav bar */
 
@@ -63,7 +76,18 @@ input[type="text"] {
   border: none;
   background-color: grey;
   color: black;
-  width: 500px;
+  width: 100%;
+  height: 50px;
+}
+
+input[type="email"],
+input[type="password"] {
+  padding: 6px;
+  font-size: 17px;
+  border: none;
+  background-color: grey;
+  color: black;
+  width: 100%;
   height: 50px;
 }
 
@@ -71,52 +95,6 @@ input[type="text"] {
 ::placeholder {
   color: black;
   opacity: 1; /* Firefox */
-}
-
-/* css for the university image and elements inside the div of the section */
-.university img {
-  float: left;
-  width: 45%;
-  margin-left: 1.5rem;
-  margin: 1rem;
-}
-
-.university .sections h1,
-.university .sections p {
-  margin-left: 25rem;
-}
-
-/* 
-css for writing box at the bottom of the page. */
-
-.write .sections {
-  display: grid;
-  align-items: center;
-}
-
-.write form {
-  display: grid;
-  align-items: center;
-}
-
-.write .sections #text {
-  min-width: 75vh;
-  min-height: 25vh;
-  background: white;
-  border-style: solid;
-  justify-self: center;
-  border-radius: 5px;
-  margin: 5px;
-}
-
-.write .sections #name {
-  min-width: 75vh;
-  min-height: 5vh;
-  background: white;
-  border-style: solid;
-  justify-self: center;
-  border-radius: 5px;
-  margin: 5px;
 }
 
 label {
@@ -131,40 +109,6 @@ label {
   background-color: grey;
 }
 
-/* Stlying for elements changed into headers like p or bold elements  */
-
-.h2 {
-  margin-left: 2.5rem;
-  font-weight: 200;
-  font-size: 1.5rem;
-}
-
-.h3 {
-  margin-left: 1.5rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  margin-top: -10px;
-}
-
-.h4 {
-  margin-left: 1.5rem;
-  font-weight: bold;
-  font-size: 1.8rem;
-  margin-top: 5px;
-}
-
-/* CSS for the titles */
-
-.titles {
-  justify-self: center;
-  align-self: flex-end;
-  font-size: 2rem;
-}
-
-.review .titles {
-  align-self: center;
-}
-
 /* Css on the divs inside the sections */
 
 .sections {
@@ -174,36 +118,7 @@ label {
   overflow-wrap: break-word;
 }
 
-.university .sections {
-  background-color: white;
-}
 
-/* Moving the video the right of the div */
-
-.sections iframe {
-  float: right;
-  margin-right: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-/* Applying styling to H2 of the sections */
-
-.sections h2 {
-  margin-top: 150px;
-  margin-left: 1.5rem;
-}
-
-/* Applying stlying the h1 of the sections */
-
-.sections h1 {
-  margin-left: 1.5rem;
-}
-
-/*  Applying styling the p of the sections*/
-
-.sections p {
-  margin-left: 1.5rem;
-}
 
 /* css for drop down menu */
 
@@ -325,7 +240,6 @@ input:checked + .slider:before {
 /* Layout for the website if dark mode button is clicked */
 
 .dark,
-.dark .university .sections,
 .dark .navbar a {
   background: #202020;
 }
