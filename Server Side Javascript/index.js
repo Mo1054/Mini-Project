@@ -1,4 +1,4 @@
-// Our wep appp
+// My web app
 // A web application to provide a gameshop
 
 // Import the modules we need
@@ -60,6 +60,7 @@ app.set('views', path.join(__dirname, '..', 'Html'));
 
 //Requires all the modules for the different pages
 require('./login')(app);
+require('./register')(app);
 
 
 

@@ -1,59 +1,57 @@
 <!DOCTYPE html>
-<!--Setting the lang for the page-->
+<!--Setting lang for the page-->
 <html lang="en">
-    <head>
-        <!--       character set-->
-        <meta charset="utf-8" />
-        <!--       title for page-->
-        <title>Contact</title>
-        <meta name="description" content="My Website" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <!--       linking stylesheet-->
-        <link rel="stylesheet" href="/login.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-        <script src="/dark.js"></script>
-    </head>
-    <body>
-        <!--    Grid container   -->
-        <div class="grid-container">
-            <!--   Sections    -->
-            <div class="navbar">
-                <a href="/">Home</a>
-                <a href="/games">Search game</a>
-                <div class="search-container">
-                    <form action="/search" method="GET">
-                        <input type="text" id="game" placeholder="Search..." name="game" required />
-                    </form>
-                </div>
-                <p>Dark mode</p>
-                <label class="switch">
-                    <input type="checkbox" checked />
-                    <span id="ColourChanger" class="slider round"></span>
-                </label>
-                <div class="dropdown">
-                    <button class="dropbtn">Menu</button>
-                    <div class="dropdown-content">
-                        <a href="/signin">Sign in</a>
-                        <a href="/signup">Sign up</a>
-                        <a href="/profile">Profile</a>
-                    </div>
-                </div>
+   <head>
+      <!--       character set-->
+      <meta charset="utf-8" />
+      <!--       title for page-->
+      <title>Log in</title>
+      <meta name="description" content="My Website" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <!--       linking stylesheet-->
+      <link rel="stylesheet" href="/login.css" />
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+      <script src="/dark.js"></script>
+   </head>
+   <body>
+      <!--    Grid container   -->
+      <div class="grid-container">
+         <!--   Sections    -->
+         <div class="navbar">
+            <a href="/">Home</a>
+            <a href="/about">About</a>
+            <div class="search-container">
+               <form action="/search" method="GET">
+                  <input type="text" id="game" placeholder="Search..." name="game" required />
+               </form>
             </div>
-            <div class="login">
-                <div class="sections">
-                    <h1>Contacts:</h1>
-                    <p class="h4">Mohamed Abdalla:</p>
-                    <p>email: mahme003@gold.ac.uk</p>
-                    <p class="h4">Debbie Cummings:</p>
-                    <p>email: dcumm002@gold.ac.uk</p>
-                    <p class="h4">Charles Rowles-Davies:</p>
-                    <p>email: crowl001@gold.ac.uk</p>
-                    <p class="h4">Gvidas Lekstutis:</p>
-                    <p>email: gleks001@gold.ac.uk</p>
-                    <p class="h4">Grace Maxwell:</p>
-                    <p>email: gmaxw002@gold.ac.uk</p>
-                </div>
+            <p>Dark mode</p>
+            <label class="switch">
+            <input type="checkbox" checked />
+            <span id="ColourChanger" class="slider round"></span>
+            </label>
+            <div class="dropdown">
+               <button class="dropbtn">Menu</button>
+               <div class="dropdown-content">
+                  <a href="/register">Sign up</a>
+                  <a href="/add">Add game </a>
+               </div>
             </div>
-        </div>
-    </body>
+         </div>
+         <div class="login">
+            <div class="sections">
+               <h1>Log in:</h1>
+               <form method="Get" action="/"> 
+                  <label for="email">Email:</label>
+                  <input id="email" type="email" name="email" placeholder="Email" value="" required /> <br>
+                  <br>
+                  <label for="password">Password:</label>
+                  <input id="password" type="password" name="password" placeholder="Password" value="" required /> <br>
+                  <br>
+                  <input type="submit" value="OK" />
+               </form>
+            </div>
+         </div>
+      </div>
+   </body>
 </html>
