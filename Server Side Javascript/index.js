@@ -13,8 +13,8 @@ const session = require("express-session");
 // Define the database connection
 const db = mysql.createConnection({
   host: "localhost",
-  user: "root",
-  password: "super-MO1234",
+  user: "forumapp",
+  password: "qwerty",
   database: "gameDatabase",
 });
 
