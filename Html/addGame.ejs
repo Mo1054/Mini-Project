@@ -1,0 +1,64 @@
+<%- include('header'); -%>
+<div class="container-fluid register_container py-5">
+
+<div class="register_heading add_game text-center pt-5">
+    <h1>Expand Your Collection</h1>
+  </div>
+  <div class="register_form_wraper col-8 mx-auto mb-5">
+    <div class="title-wrapper">
+      <h3 class="widget-title">Add your new game</h3>
+      <div class="clear"></div>
+    </div>
+    <form class="register_form" method="post">
+      <p>
+        <label>Title:</label>
+        <span class="cust_input">
+          <input
+            type="text"
+            name="title"
+            class="input"
+            size="20"
+            tabindex="10"
+            required
+          />
+        </span>
+      </p>
+      <p>
+        <label>Description:</label>
+        <span class="cust_input">
+          <input
+            type="text"
+            name="description"
+            class="input"
+            size="25"
+            tabindex="20"
+            required
+          />
+        </span>
+      </p>
+
+      <p>
+        <label>Release Date:</label>
+        <span class="cust_input">
+          <input
+            type="date"
+            name="release_date"
+            class="input"
+            size="25"
+            tabindex="20"
+            required
+          />
+        </span>
+      </p>
+
+      <p class="d-flex justify-content-center">
+        <button type="submit" id="submit" class="signup">
+          Add Game
+        </button>
+      </p>
+
+    </form>
+  </div>
+</div>
+</div>
+<%- include('footer'); -%>

@@ -1,0 +1,83 @@
+<% if(auth){ %>
+<div
+  class="register_heading border-0 text-white rounded-0 alert alert-warning alert-dismissible fade show m-0"
+  role="alert"
+>
+  <strong>Invalid Credentails!</strong>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %> <%- include('header'); -%>
+<!-- home page  -->
+<div
+  class="container-fluid d-flex justify-content-center align-items-center home_container"
+>
+  <div class="container">
+    <div class="inner_home">
+      <h1>
+        Destination for
+        <span>Gaming</span>
+        Discover Review and Rate
+      </h1>
+      <h4>
+        RateThisGame is designed for gaming enthusiasts who seek a platform to
+        discover, rate, and review video games effortlessly.
+      </h4>
+      <div>
+        <a href="register" class="home_btn">
+          <i aria-hidden="true" class="fas fa-user-astronaut"></i>
+          <span>register today</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- all games page  -->
+<div class="games_container container-fluid py-5" id="games">
+  <div class="container games_container">
+    <h1>Qick start - Choose your game</h1>
+    <div>
+      <div class="divider mx-auto"></div>
+    </div>
+    <p class="mb-5">
+      Invites you to swiftly explore a world of gaming options. RateThisGame
+      tailor your experience with ease, discovering thrilling adventures and
+      strategic challenges. Your personalized gaming journey begins here.
+    </p>
+
+    <div
+      class="container mt-5 d-flex gap-3 justify-content-center align-items-center flex-wrap"
+    >
+      <% data.forEach(game => { %>
+      <div class="card" style="width: 12rem">
+        <div class="card-body">
+          <h5 class="card-title mt-2"><%= game.title %></h5>
+          <p class="text-white text-small mt-2"><%= game.description %></p>
+          <div class="d-flex align-items-center gap-1">
+            <i style="color: #ff9c00 !important" class="fa-solid fa-star"></i>
+            <span class="text-light">4.5</span>
+            <!-- <i
+              class="fa-regular fa-star ms-3"
+              type="button"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+              style="color: #ff9c00 !important"
+            ></i> -->
+          </div>
+          <div class="game_btn mt-4">
+            <a href="viewGame/<%= game.id %>">View Ratings</a>
+          </div>
+        </div>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<!-- Footer  -->
+<%- include('footer'); -%>

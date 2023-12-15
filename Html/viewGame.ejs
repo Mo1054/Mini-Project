@@ -1,0 +1,128 @@
+<%- include('header'); -%>
+
+<div class="container-fluid register_container py-5">
+  <div class="register_heading add_game text-center pt-5">
+    <h1>Game Info</h1>
+  </div>
+  <div class="register_form_wraper col-8 mx-auto mb-5">
+    <% if (e) { %>
+    <div class="register_heading text-center py-2">
+      <h4 class="m-0 text-white">Please login first</h4>
+    </div>
+    <% } %>
+    <div class="title-wrapper">
+      <h3 class="widget-title game-title"><%= game.title %></h3>
+      <div class="clear"></div>
+    </div>
+    <p class="text-white" style="font-size: 16px"><%= game.description %></p>
+    <div class="d-flex justify-content-between align-items-center">
+      <h3 class="text-white m-0">Ratings and Reviews</h3>
+      <button
+        class="rating-btn"
+        data-bs-toggle="modal"
+        data-bs-target="#ratingModal"
+      >
+        Add Rating
+      </button>
+    </div>
+    <div class="ratings">
+      <% ratings.forEach(rating => { %>
+      <div class="rating">
+        <h6 class="rating-user"><%= rating.username %></h6>
+        <div class="d-flex">
+          <% Array(parseInt(rating.rating)).fill().forEach(() => { %>
+          <i
+            class="fa-solid fa-star me-1"
+            style="color: #ff9c00 !important"
+          ></i>
+          <% }) %> <% Array(5 - parseInt(rating.rating)).fill().forEach(() => {
+          %>
+          <i
+            class="fa-regular fa-star me-1"
+            style="color: #ff9c00 !important"
+          ></i>
+          <% }) %>
+        </div>
+        <p class="text-white mt-2" style="font-size: 14px">
+          <%= rating.comment %>
+        </p>
+      </div>
+      <% }); %>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="ratingModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button
+          type="button"
+          class="btn-close"
+          style="color: #fff !important"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <form action="/addRating" method="post">
+        <div class="modal-body">
+          <p
+            class="text-warning mb-0 fw-bold"
+            style="font-size: 11px; letter-spacing: 1px"
+          >
+            RATE THIS
+          </p>
+          <p class="text-white mb-2"><%= game.title %></p>
+          <div class="modal_icons" id="modal_icons">
+            <i
+              onclick="addRating(1)"
+              class="fa-regular fa-star rating-star"
+              style="color: #ff9c00 !important"
+            ></i>
+            <i
+              onclick="addRating(2)"
+              class="fa-regular fa-star rating-star"
+              style="color: #ff9c00 !important"
+            ></i>
+            <i
+              onclick="addRating(3)"
+              class="fa-regular fa-star rating-star"
+              style="color: #ff9c00 !important"
+            ></i>
+            <i
+              onclick="addRating(4)"
+              class="fa-regular fa-star rating-star"
+              style="color: #ff9c00 !important"
+            ></i>
+            <i
+              onclick="addRating(5)"
+              class="fa-regular fa-star rating-star"
+              style="color: #ff9c00 !important"
+            ></i>
+          </div>
+          <textarea required name="comment" class="rating-text"></textarea>
+        </div>
+        <input type="hidden" name="game_id" value="<%= game.id %>" />
+        <input type="hidden" name="rating" value="0" id="rating_input" />
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn modal_btn w-100 text-white"
+            data-bs-dismiss="modal"
+          >
+            Rate
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<%- include('footer'); -%>
