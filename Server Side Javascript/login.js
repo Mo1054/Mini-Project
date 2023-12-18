@@ -1,33 +1,46 @@
 const bcrypt = require("bcryptjs");
-
+const {
+   body,
+   validationResult
+} = require('express-validator');
 module.exports = function (app) {
-  //Render page
-  app.post("/login", async function (req, res) {
-    const { email, password } = req.body;
+   //Render page
+   app.post("/login", // Sanitization chain
+      body('email').isEmail().normalizeEmail(),
+      body('password').trim(), async function (req, res) {
+         const {
+            email,
+            password
+         } = req.body;
 
-    let data = await dbQuery("SELECT * FROM users WHERE email = ?", [email]);
-    if (data.length < 1) {
-      return res.redirect("/?auth=false");
-    }
-    const user = data[0];
-    if (!isPasswordMatch(user.password, password)) {
-      return res.redirect("/?e=t");
-    }
-    req.session.user = user.id;
-    res.redirect("/");
-  });
+         const errors = validationResult(req);
+         if (!errors.isEmpty()) {
+            return res.redirect("/?auth=invalid_input");
+         }
 
-  app.get("/logout", async function (req, res) {
-    req.session.destroy((err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.redirect("/");
-      }
-    });
-  });
+         let data = await dbQuery("SELECT * FROM users WHERE email = ?", [email]);
+         if (data.length < 1) {
+            return res.redirect("/?auth=false");
+         }
+         const user = data[0];
+         if (!isPasswordMatch(user.password, password)) {
+            return res.redirect("/?e=t");
+         }
+         req.session.user = user.id;
+         res.redirect("/");
+      });
 
-  const isPasswordMatch = async (password, userPassword) => {
-    return bcrypt.compare(password, userPassword);
-  };
+   app.get("/logout", async function (req, res) {
+      req.session.destroy((err) => {
+         if (err) {
+            console.log(err);
+         } else {
+            res.redirect("/");
+         }
+      });
+   });
+
+   const isPasswordMatch = async (password, userPassword) => {
+      return bcrypt.compare(password, userPassword);
+   };
 };

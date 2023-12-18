@@ -32,7 +32,12 @@ module.exports = function(app) {
 				c_password
 			} =
 			req.body;
-
+			// Check for validation errors
+			const errors = validationResult(req);
+			if (!errors.isEmpty()) {
+				return res.redirect("/register?error=Invalid input");
+			}
+			
 			if (password !== c_password) {
 				return res.redirect("/register?error=Passwords do not match");
 			}
