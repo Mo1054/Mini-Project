@@ -30,4 +30,19 @@ module.exports = function (app) {
     });
     res.redirect("/viewGame/" + req.body.game_id);
   });
+
+   // API endpoint to get all games
+   app.get("/api/viewGames", async function (req, res) {
+    try {
+      const games = await dbQuery("SELECT * FROM games");
+      if (games.length === 0) {
+        // Redirect to the root route if no games are found
+        res.redirect("/");
+      } else {
+        res.json(games);
+      }
+    } catch (error) {
+      res.status(500).json({ error: "Internal Server Error" });
+    }
+  });
 };
