@@ -9,6 +9,7 @@ const path = require("path");
 const mysql = require("mysql");
 const util = require("util");
 const session = require("express-session");
+const { body, validationResult } = require('express-validator');
 
 // Define the database connection
 const db = mysql.createConnection({

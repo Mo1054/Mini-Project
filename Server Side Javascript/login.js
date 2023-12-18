@@ -1,7 +1,6 @@
 const bcrypt = require("bcryptjs");
 
 module.exports = function (app) {
-  //The Code for contact page goes here
   //Render page
   app.post("/login", async function (req, res) {
     const { email, password } = req.body;

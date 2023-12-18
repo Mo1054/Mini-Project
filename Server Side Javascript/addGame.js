@@ -1,6 +1,5 @@
 // Route handler for web app
 module.exports = function (app) {
-  //The Code for contact page goes here
   //Render page
   app.get("/addGame", function (req, res) {
     res.render("addGame.ejs", { user: req.session?.user });
