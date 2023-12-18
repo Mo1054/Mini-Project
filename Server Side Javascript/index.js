@@ -18,6 +18,7 @@ const db = mysql.createConnection({
   database: "gameDatabase",
 });
 
+
 // Connect to the database
 db.connect((err) => {
   if (err) {
@@ -53,6 +54,10 @@ app.use(express.static(path.join(__dirname, "..", "Css")));
 app.use(express.static(path.join(__dirname, "..", "Client Side Javascript")));
 
 app.use(express.static(path.join(__dirname, "..", "Images")));
+
+app.get('/favicon.ico', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'Images', 'favicon.ico'));
+});
 
 // Tell Express that we want to use EJS as the templating engine
 app.set("view engine", "ejs");

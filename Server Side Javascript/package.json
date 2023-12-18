@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "repository": "https://github.com/Mo1054/Mini-Project.git",
-  "author": "Mohamed Abdalla <https://github.com/Mo1054/Mini-Project>",
+  "author": "Mohamed Abdalla <71541110+AwaisKhanJoiya@users.noreply.github.com>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",

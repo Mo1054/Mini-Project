@@ -7,7 +7,6 @@
 -- Server version: 10.4.17-MariaDB
 -- PHP Version: 7.4.15
 
-
 CREATE DATABASE gameDatabase;
 USE gameDatabase;
 
